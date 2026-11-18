@@ -1,12 +1,20 @@
 import axios from 'axios';
 
-// In production (Vercel), VITE_API_URL must be set in Vercel Dashboard → Settings → Environment Variables
-// In development, it falls back to localhost
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL ||
-  (import.meta.env.PROD
-    ? 'https://vd-logs-backend.onrender.com/api/v1'
-    : 'http://localhost:5000/api/v1');
+// Resolve API base URL for all environments
+// Priority: VITE_API_URL env var (set in Vercel Dashboard) → hardcoded production → localhost dev
+function resolveApiBaseUrl() {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl) {
+    // Ensure the env var includes /api/v1 suffix — common misconfiguration
+    return envUrl.endsWith('/api/v1') ? envUrl : `${envUrl.replace(/\/+$/, '')}/api/v1`;
+  }
+  if (import.meta.env.PROD) {
+    return 'https://vd-logs-backend.onrender.com/api/v1';
+  }
+  return 'http://localhost:5000/api/v1';
+}
+
+const API_BASE_URL = resolveApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
