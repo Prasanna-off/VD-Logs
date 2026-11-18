@@ -1,7 +1,15 @@
 import axios from 'axios';
 
+// In production (Vercel), VITE_API_URL must be set in Vercel Dashboard → Settings → Environment Variables
+// In development, it falls back to localhost
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? 'https://vd-logs-backend.onrender.com/api/v1'
+    : 'http://localhost:5000/api/v1');
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
