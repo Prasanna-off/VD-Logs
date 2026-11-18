@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Theme (Default) */
+    --color-background: #0b0a08;
+    --color-surface: #100f0c;
+    --color-surface-dim: #0a0907;
+    --color-surface-bright: #1c1a16;
+    --color-surface-lowest: #14120e;
+    --color-surface-low: #181612;
+    --color-surface-container: #1e1b16;
+    --color-surface-high: #26221c;
+    --color-surface-highest: #312b23;
+    --color-on-surface: #f7f2ea;
+    --color-on-surface-variant: #bdae9b;
+    --color-inverse-surface: #ede7de;
+    --color-inverse-on-surface: #171512;
+    --color-outline: #6d6355;
+    --color-outline-variant: #3a342b;
+    --color-primary: #d4af37;
+    --color-on-primary: #0a0802;
+    --color-primary-container: #8c6e1c;
+    --color-on-primary-container: #fff1c2;
+    --color-secondary: #e6c564;
+    --color-on-secondary: #0d0a02;
+    --color-secondary-container: #4f3f11;
+    --color-on-secondary-container: #faebba;
+    --color-on-background: #f7f2ea;
+  }
+
+  /* Light Theme (Crisp, High-Contrast Luxury SaaS) */
+  :root:not(.dark), .light {
+    --color-background: #f8f6f0;
+    --color-surface: #ffffff;
+    --color-surface-dim: #f0ece1;
+    --color-surface-bright: #ffffff;
+    --color-surface-lowest: #ffffff;
+    --color-surface-low: #f5f2e9;
+    --color-surface-container: #ede8dc;
+    --color-surface-high: #e3dcce;
+    --color-surface-highest: #d6ccbb;
+    --color-on-surface: #1a1713;
+    --color-on-surface-variant: #524a3e;
+    --color-inverse-surface: #1e1b16;
+    --color-inverse-on-surface: #faf8f5;
+    --color-outline: #8c806f;
+    --color-outline-variant: #d8cebe;
+    --color-primary: #9e7a1b;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #fef0c7;
+    --color-on-primary-container: #423004;
+    --color-secondary: #856410;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #fef5d6;
+    --color-on-secondary-container: #3a2b05;
+    --color-on-background: #1a1713;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar - Responsive to Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 9999px;
+}
+:root:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgba(158, 122, 27, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+:root:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(158, 122, 27, 0.5);
+}
+
+/* Luxury Card System */
+.lux-card {
+  background: linear-gradient(180deg, rgba(28, 25, 20, 0.85) 0%, rgba(16, 14, 11, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+:root:not(.dark) .lux-card {
+  background: #ffffff;
+  border: 1px solid #d8cebe;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+}
+.dark .lux-card:hover {
+  border-color: rgba(212, 175, 55, 0.42);
+  box-shadow: 0 24px 48px -12px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 235, 170, 0.25);
+  transform: translateY(-2px);
+}
+:root:not(.dark) .lux-card:hover {
+  border-color: #9e7a1b;
+  box-shadow: 0 16px 30px -8px rgba(158, 122, 27, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Gold Text Gradient */
+.gold-text {
+  background: linear-gradient(135deg, #fff2b2 0%, #d4af37 50%, #aa8218 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+:root:not(.dark) .gold-text {
+  background: linear-gradient(135deg, #856410 0%, #aa8218 50%, #573e0c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

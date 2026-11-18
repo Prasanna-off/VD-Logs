@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>VD Logs — Vishvadaan Educational and Charitable Trust</title>
+    <meta name="description" content="Institutional attendance, daily task governance, and work verification portal for Vishvadaan Educational & Charitable Trust." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="VD Logs — Vishvadaan Educational and Charitable Trust" />
+    <meta property="og:description" content="Institutional attendance, daily task governance, and work verification portal." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#d4af37" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('vd_theme');
+          var root = document.documentElement;
+          if (savedTheme === 'light') {
+            root.classList.remove('dark');
+            root.classList.add('light');
+          } else {
+            root.classList.add('dark');
+            root.classList.remove('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-background text-on-surface antialiased transition-colors duration-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
